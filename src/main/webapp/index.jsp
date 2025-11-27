@@ -1,9 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <title>EMPRESA</title>
     <style>
@@ -52,13 +49,13 @@
 <div>
     <table>
         <tr>
-            <td><a href="${pageContext.request.contextPath}/app?accion=listarEmpleados">Consultar empleados</a></td>
+            <td><a th:href="@{/empleados/listar}">Consultar empleados</a></td>
         </tr>
         <tr>
-            <td><a href="${pageContext.request.contextPath}/app?accion=listarSalarios">Mostrar salario de empleados</a></td>
+            <td><a th:href="@{/nomina/salarios}">Mostrar salario de empleados</a></td>
         </tr>
         <tr>
-            <td><a href="${pageContext.request.contextPath}/app?accion=modificarEmpleado">Modificar datos de un empleado existente</a></td>
+            <td><a th:href="@{/empleados/modificar}">Modificar datos de un empleado existente</a></td>
         </tr>
     </table>
 </div>

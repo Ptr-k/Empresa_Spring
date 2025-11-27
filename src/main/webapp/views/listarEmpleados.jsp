@@ -47,27 +47,38 @@
 </head>
 <body>
 <div>
-    <table border="1">
-        <tr>
-            <td>DNI</td>
-            <td>Nombre</td>
-            <td>Sexo</td>
-            <td>Categoria</td>
-            <td>Años</td>
-        </tr>
-        <c:forEach var="empleado" items="${lista}">
-            <tr>
-                <td><c:out value="${empleado.dni}"></c:out></td>
-                <td><c:out value="${empleado.nombre}"></c:out></td>
-                <td><c:out value="${empleado.sexo}"></c:out></td>
-                <td><c:out value="${empleado.categoria}"></c:out></td>
-                <td><c:out value="${empleado.anyos}"></c:out></td>
-            </tr>
-        </c:forEach>
-    </table>
-    <button type="button" onclick="window.location.href='<%= request.getContextPath() %>/'">
-        Volver al Inicio
-    </button>
+    <c:choose>
+        <c:when test="${empty empleados}">
+            <p>No hay empleados registrados.</p>
+        </c:when>
+        <c:otherwise>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Sexo</th>
+                    <th>Categoría</th>
+                    <th>Años Trabajados</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="empleado" items="${empleados}">
+                    <tr>
+                        <td>${empleado.id}</td>
+                        <td>${empleado.nombre}</td>
+                        <td>${empleado.dni}</td>
+                        <td>${empleado.sexo}</td>
+                        <td>${empleado.categoria}</td>
+                        <td>${empleado.anyos}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </c:otherwise>
+    </c:choose>
 </div>
 </body>
 </html>
